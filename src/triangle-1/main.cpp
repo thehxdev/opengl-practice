@@ -15,8 +15,8 @@
 #include <common.hpp>
 
 typedef struct __vertex {
-    glm::vec2 pos;
-    glm::vec3 col;
+    glm::vec2 position;
+    glm::vec3 color;
 } vertex_t;
 
 int main(int argc, char *argv[]) {
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     GLuint vbo, program, vao, pos_location, mvp_location, posColor_location;
 
     vertex_t vertecies[3] = {
-        {{  .0f,  .6f}, {1.f, 0.f, 0.f}},
+        {{  0.f,  .6f}, {1.f, 0.f, 0.f}},
         {{  .5f, -.3f}, {0.f, 1.f, 0.f}},
         {{ -.5f, -.3f}, {0.f, 0.f, 1.f}},
     };
@@ -82,10 +82,10 @@ int main(int argc, char *argv[]) {
     posColor_location = glGetAttribLocation(program, "posColor");
 
     glEnableVertexAttribArray(pos_location);
-    glVertexAttribPointer(pos_location, 2, GL_FLOAT, GL_FALSE, sizeof(vertex_t), (void*)offsetof(vertex_t, pos));
+    glVertexAttribPointer(pos_location, 2, GL_FLOAT, GL_FALSE, sizeof(vertex_t), (void*)offsetof(vertex_t, position));
 
     glEnableVertexAttribArray(posColor_location);
-    glVertexAttribPointer(posColor_location, 3, GL_FLOAT, GL_FALSE, sizeof(vertex_t), (void*)offsetof(vertex_t, col));
+    glVertexAttribPointer(posColor_location, 3, GL_FLOAT, GL_FALSE, sizeof(vertex_t), (void*)offsetof(vertex_t, color));
 
     common::PrintInfo();
 
