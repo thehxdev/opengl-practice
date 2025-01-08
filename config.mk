@@ -1,4 +1,8 @@
-# PR -> Project Root: absolute path to project root directory
+# PR -> Project Root: relative path to project root directory from a sub-project
+# Example: make PR=../.. -C ./src/triangle-1
+# the `../..` part is path to project root relative to `src/triangle-1`
+# or if you are in `src/triangle-1` directory the build command will be the following:
+# make PR=../..
 DEPS_LIB_DIR := $(PR)/_deps/_root/lib
 DEPS_INCLUDE_DIR := $(PR)/_deps/_root/include
 
