@@ -2,3 +2,7 @@
 	path = src/external/glfw
 	url = https://github.com/glfw/glfw.git
 	branch = master
+[submodule "src/external/glm"]
+	path = src/external/glm
+	url = https://github.com/g-truc/glm
+	branch = master
