@@ -1,8 +1,4 @@
-lib/
-_deps/
 *.o
 compile_flags.txt
-a.out
 out
 .vs
-build
