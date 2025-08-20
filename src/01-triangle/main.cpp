@@ -31,30 +31,33 @@ int main(int argc, char *argv[]) {
     GLuint vbo, program, vao, pos_location, mvp_location, posColor_location;
 
     vertex_t vertecies[3] = {
-        {{  0.f,  .6f}, {1.f, 0.f, 0.f}},
-        {{  .5f, -.3f}, {0.f, 1.f, 0.f}},
-        {{ -.5f, -.3f}, {0.f, 0.f, 1.f}},
+        {{  0.f,  .6f }, { 1.f, 0.f, 0.f }},
+        {{  .5f, -.3f }, { 0.f, 1.f, 0.f }},
+        {{ -.5f, -.3f }, { 0.f, 0.f, 1.f }},
     };
 
     glm::vec3 scale{1.3f, 1.3f, 1.3f};
     glm::vec3 rotation_axis{0.f, 0.f, 1.f};
     glm::mat4 scale_matrix = glm::scale(glm::mat4{1.f}, scale);
 
-    /* Initialize the library */
+    // Initialize the library
     if (!glfwInit())
         return -1;
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     std::string vertex_shader_source{common::ReadFile(argv[1])};
     std::string fragment_shader_source{common::ReadFile(argv[2])};
 
-    /* Create a windowed mode window and its OpenGL context */
+    // Create a windowed mode window and its OpenGL context
     window = glfwCreateWindow(1040, 800, "Hello Triangle 1", nullptr, nullptr);
     if (!window) {
         err = -1;
         goto ret;
     }
 
-    /* Make the window's context current */
+    // Make the window's context current
     glfwMakeContextCurrent(window);
 
     if (!gladLoadGL(glfwGetProcAddress)) {
@@ -89,7 +92,7 @@ int main(int argc, char *argv[]) {
 
     common::PrintInfo();
 
-    /* Loop until the user closes the window */
+    // Loop until the user closes the window
     while (!glfwWindowShouldClose(window)) {
         int width, height;
         glfwGetFramebufferSize(window, &width, &height);
