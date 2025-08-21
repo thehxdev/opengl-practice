@@ -39,5 +39,7 @@ for target in $(find "$SRC_PATH" -name '*' -type d | grep -P "\d\d-.*"); do
         "${INCLUDES[@]}" "${LIBRARIES[@]}" \
         -o "$BUILD_PATH/${target##*/}" \
         "$target/build.cpp" \
-        "${LIBS[@]}"
+        "${LIBS[@]}" &
 done
+
+wait
