@@ -32,7 +32,7 @@ mkdir -p "$BUILD_PATH"
 echo '*' > "$BUILD_PATH/.gitignore"
 
 
-for target in $(find "$SRC_PATH" -name '*' -type d | grep -P "\d\d-.*"); do
+for target in $(find "$SRC_PATH" -type d | grep -P "\d\d-.+"); do
     log_run \
         $CXX \
         "${CXXFLAGS[@]}" "${LDFLAGS[@]}" \
